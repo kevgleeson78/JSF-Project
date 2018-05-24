@@ -1,0 +1,48 @@
+<!DOCTYPE html [
+    <!ENTITY nbsp "&#160;"> 
+]>
+    <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+    <title>Add City</title>
+
+   	<h:outputStylesheet library="css" name="tables.css"  />
+    </h:head>
+
+    <h:body>
+    
+    <h3>Add City</h3>
+    <h:form>
+  	<ul style="list-style: none;">
+  	<h:messages globalOnly="true" styleClass="error"/>
+      <li>City Code: <h:inputText value="#{city.cty_code}"  id="CityCode" required="true" requiredMessage="City Code is mandatory" />
+      <h:message for="CityCode" styleClass="error"/> 
+      </li>
+      <li>Country Code: <h:inputText value="#{city.co_code}"  id="CountryCode" required="true" requiredMessage="Country Code is mandatory" />
+      <h:message for="CountryCode" styleClass="error"/> 
+      </li>
+      <li>Region Code: <h:inputText value="#{city.reg_code}"  id="RegionCode" required="true" requiredMessage="Region Code is mandatory" />
+      <h:message for="RegionCode" styleClass="error"/> 
+      </li>
+      <li>Name: <h:inputText value="#{city.cty_name}" id="CityName" required="true" requiredMessage="Name is mandatory"/>
+		     <h:message for="CityName" styleClass="error"/></li>
+		     <li>Population: <h:inputText value="#{city.population}"/></li> 
+		     <li>By the Sea: <h:selectOneMenu value="#{city.isCoastal}">
+			<f:selectItem itemValue="true" itemLabel="true" />
+			<f:selectItem itemValue="false" itemLabel="false" />
+
+		</h:selectOneMenu></li> 
+		     <li>Area KM: <h:inputText value="#{city.areaKM}"/></li> 
+		   <h:commandButton value="Add"	action="#{cityController.addCity(city)}" />
+	</ul>
+   </h:form>
+    <h:link value="Home" outcome="index"/>&nbsp;
+   <h:link value="Cities" outcome="list_cities" />
+ 
+
+   
+    </h:body>
+    </html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html [
+    <!ENTITY nbsp "&#160;"> 
+]>
+    <html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+    <title>Add Country</title>
+
+   	<h:outputStylesheet library="css" name="tables.css"  />
+    </h:head>
+
+    <h:body>
+    
+    <h3>Add Country</h3>
+    <h:form>
+  	<ul style="list-style: none;">
+  	<h:messages globalOnly="true" styleClass="error"/>
+      <li>Code: <h:inputText value="#{country.co_code}"  id="CountryCode" required="true" requiredMessage="Code is mandatory" />
+      <h:message for="CountryCode" styleClass="error"/> 
+      </li>
+      <li>Name: <h:inputText value="#{country.co_name}" id="CountryName" required="true" requiredMessage="Name is mandatory"/>
+		     <h:message for="CountryName" styleClass="error"/></li>
+		     <li>Details: <h:inputText value="#{country.co_details}"/></li> 
+		    <h:commandButton value="Add" action="#{countryController.addCountry(country)}"/> 
+	</ul>
+   </h:form>
+    <h:link value="Home" outcome="index"/>&nbsp;
+   <h:link value="Countries" outcome="list_countries" />
+ 
+
+   
+    </h:body>
+    </html>

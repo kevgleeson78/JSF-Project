@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:metadata>
+	<f:event listener="#{countryController.getCountries1()}" type="preRenderView" />
+</f:metadata>
+	
+<h:head>
+	<title>List Country</title>
+	<h:outputStylesheet library="css" name="tables.css" />
+</h:head>
+
+<h:body>
+
+<h2>Countries</h2>
+	<h:form>
+		<h:commandButton value="Add Country" action="add_country" />
+		<br />
+		<h:dataTable value="#{countryController.countries}" var="c"
+			styleClass="table" headerClass="table-header"
+			rowClasses="table-odd-row,table-even-row">
+			<h:column>
+				<f:facet name="header">Country Code</f:facet>
+ 	 			 #{c.co_code}
+ 	 			 
+			</h:column>
+			<h:column>
+				<f:facet name="header">Country Name</f:facet>
+ 	 			 #{c.co_name}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Country Details</f:facet>
+ 	 			 #{c.co_details}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Actions</f:facet>
+ 	 			 <h:commandLink value="Update"
+					action="#{countryController.loadCountry(c.co_code)}" /><br/>
+					<h:commandLink value="Delete"
+					  onclick="if (!confirm('Delete this Country?')) return false"
+  						action="#{countryController.deleteCountry(c.co_code)}"/><br/>
+			</h:column>
+
+
+
+		</h:dataTable>
+		
+	</h:form>
+	<h:link value="Home" outcome="index"/>
+</h:body>
+</html>

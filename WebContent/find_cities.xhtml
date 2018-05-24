@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Find All Cities</title>
+	<h:outputStylesheet library="css" name="tables.css" />
+</h:head>
+
+<h:body>
+
+	 <h1>Find All Cities</h1>
+       <f:view>
+            <h:form>
+            Population: 
+            <h:selectOneMenu value="#{cityController.compare}">
+               		<f:selectItem itemEscaped="true" itemLabel="Greater Than" itemValue="&gt;" />
+    				<f:selectItem itemEscaped="true" itemLabel="Less Than" itemValue="&lt;" />
+    				<f:selectItem itemEscaped="false" itemLabel="Equal To" itemValue="=" />
+                </h:selectOneMenu>
+            <h:inputText value="#{cityController.comparePopulation}"></h:inputText><br/><br/>
+            Country Code: 
+                <h:inputText value="#{cityController.search}"></h:inputText><br/><br/>
+                By The Sea: 
+                <h:selectOneMenu value="#{cityController.isCoastal}">
+               		<f:selectItem itemValue="true" itemLabel="True" />
+					<f:selectItem itemValue="false" itemLabel="False" />
+                </h:selectOneMenu><br/><br/>
+                <h:commandButton value="Search" action="searchResults"></h:commandButton>
+            </h:form>
+        </f:view>
+        
+	<h:link value="Home" outcome="index" />
+</h:body>
+</html>

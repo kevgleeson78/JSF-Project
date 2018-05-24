@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:metadata>
+	<f:event listener="#{regionsController.getRegions1()}" type="preRenderView" />
+</f:metadata>
+	
+<h:head>
+	<title>List Regions</title>
+	<h:outputStylesheet library="css" name="tables.css" />
+</h:head>
+
+<h:body>
+
+<h2>Regions</h2>
+	<h:form>
+		<h:commandButton value="Add Region" action="add_region" />
+		<br />
+		<h:dataTable value="#{regionsController.regions}" var="r"
+			styleClass="table" headerClass="table-header"
+			rowClasses="table-odd-row,table-even-row">
+			<h:column>
+				<f:facet name="header">Country Code</f:facet>
+ 	 			 #{r.co_code}
+ 	 			 
+			</h:column>
+			<h:column>
+				<f:facet name="header">Region Code</f:facet>
+ 	 			 #{r.reg_code}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Region Name</f:facet>
+ 	 			 #{r.reg_name}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Region Description</f:facet>
+ 	 			 #{r.reg_desc}
+			</h:column>
+
+
+
+
+		</h:dataTable>
+		
+	</h:form>
+	<h:link value="Home" outcome="index"/>
+</h:body>
+</html>

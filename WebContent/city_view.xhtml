@@ -1,0 +1,44 @@
+<!DOCTYPE html [
+    <!ENTITY nbsp "&#160;"> 
+]>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:f="http://xmlns.jcp.org/jsf/core">
+  
+  <h:head>
+    <title>Full City Details</title>
+  </h:head>
+  
+  <h:body>
+	
+  	<h3>Full City Details</h3>
+    <h:form>
+    <h:message for="cty_code" styleClass="error" />
+      City Code: #{cityController.city.cty_code}
+  	  
+      <br/>
+      <br/>
+      City Name: #{cityController.city.cty_name}
+      <br/>
+      <br/>
+      Country: #{cityController.city.co_code}
+      <br/>
+      <br/>
+      Region: #{cityController.city.reg_code}
+      <br/>
+      <br/>
+      City Population: #{cityController.city.population}
+      <br/>
+      <br/>
+      By the Sea: #{cityController.city.isCoastal}
+      <br/>
+      <br/>
+      Area (KM): #{cityController.city.areaKM}
+      <br/>
+      <br/>
+   </h:form>
+   <h:link value="Home" outcome="index"/>&nbsp;
+   <h:link value="Cities" outcome="list_cities" />
+  </h:body>
+</html>

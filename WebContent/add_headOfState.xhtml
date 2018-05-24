@@ -1,0 +1,35 @@
+<!DOCTYPE html [
+    <!ENTITY nbsp "&#160;"> 
+]>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<title>Add Head of State</title>
+	<h:outputStylesheet library="css" name="tables.css" />
+</h:head>
+<h:body>
+	
+	<h3>Add Head of State</h3>
+	<h:form>
+		<ul style="list-style: none;">
+			<h:messages globalOnly="true" styleClass="error" />
+			<li>Country Code: <h:inputText value="#{headsOfState._id}"
+					id="CountryCode" required="true"
+					requiredMessage="CountryCode is mandatory" /> 
+					<h:message for="CountryCode" styleClass="error" />
+			</li>
+			<li>Head of State: <h:inputText value="#{headsOfState.headOfState}"
+					id="headOfState" required="true"
+					requiredMessage="Head of State is mandatory" /> 
+					<h:message for="headOfState" styleClass="error" />
+			</li>
+		</ul>
+		<h:commandButton value="Add" action="#{headsOfStateController.addHeadOfState(headsOfState)}" />
+	</h:form>
+	<h:link value="Home" outcome="index" />&nbsp;
+	<h:link value="Heads of State" outcome="list_heads_of_state" />
+</h:body>
+</html>
